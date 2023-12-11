@@ -9,8 +9,9 @@ using QFSW.QC;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using Unity.Networking.Transport.Relay;
+using StarterAssets;
 
-public class TestingRelay : MonoBehaviour
+public class TestingRelay : NetworkBehaviour
 {
 
     private async void Start()
@@ -41,6 +42,7 @@ public class TestingRelay : MonoBehaviour
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
 
             NetworkManager.Singleton.StartHost();
+
         }
         catch (RelayServiceException e)
         {
@@ -59,6 +61,8 @@ public class TestingRelay : MonoBehaviour
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
 
             NetworkManager.Singleton.StartClient();
+
+            
         }
         catch (RelayServiceException e)
         {

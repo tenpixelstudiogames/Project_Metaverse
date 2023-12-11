@@ -106,7 +106,8 @@ namespace StarterAssets
         private CharacterController _controller;
         private StarterAssetsInputs _input;
         private GameObject _mainCamera;
-
+        private UICanvasControllerInput uICanvasControllerInputScritp;
+        private MobileDisableAutoSwitchControls mobileDisableAutoSwitchControlsScript;
         private const float _threshold = 0.01f;
 
         private bool _hasAnimator;
@@ -130,6 +131,16 @@ namespace StarterAssets
             if (_mainCamera == null)
             {
                 _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+            }
+
+            if(uICanvasControllerInputScritp == null)
+            {
+                uICanvasControllerInputScritp =  GameObject.FindAnyObjectByType<UICanvasControllerInput>();
+                
+            }
+            if(mobileDisableAutoSwitchControlsScript == null)
+            {
+                mobileDisableAutoSwitchControlsScript = GameObject.FindAnyObjectByType<MobileDisableAutoSwitchControls>();
             }
         }
 
@@ -156,6 +167,9 @@ namespace StarterAssets
             {
                 _playerInput = GetComponent<PlayerInput>();
                 _playerInput.enabled = true;
+                uICanvasControllerInputScritp.starterAssetsInputs = this.GetComponent<StarterAssetsInputs>();
+                mobileDisableAutoSwitchControlsScript.playerInput = _playerInput;
+                mobileDisableAutoSwitchControlsScript.DisableAutoSwitchControls();
             }
 
         }
