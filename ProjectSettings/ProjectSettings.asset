@@ -890,7 +890,12 @@ PlayerSettings:
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
   cloudServicesEnabled:
+    Build: 0
+    Game Performance: 0
+    Purchasing: 0
+    UDP: 0
     UNet: 1
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -905,11 +910,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 1cdcd42d-9e3f-41b5-a122-6e9bdfad9c54
+  cloudProjectId: 8140ed1c-0aa8-463d-93f4-d7010d7e7607
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: Project_Metaverse
-  organizationId: harisabdullah441
+  organizationId: unity_41ad5b9f55ea993cd64d
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
