@@ -16,7 +16,7 @@ using UnityEngine.InputSystem;
 public class MobileDisableAutoSwitchControls : MonoBehaviour
 {
 
-#if ENABLE_INPUT_SYSTEM && (UNITY_IOS || UNITY_ANDROID || UNITY_STANDALONE_WIN)
+#if ENABLE_INPUT_SYSTEM && (UNITY_IOS || UNITY_ANDROID)
 
     [Header("Target")]
     public PlayerInput playerInput;

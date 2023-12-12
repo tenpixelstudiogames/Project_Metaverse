@@ -1,5 +1,6 @@
 ﻿ using UnityEngine;
 using Unity.Netcode;
+using Cinemachine;
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
 #endif
@@ -106,12 +107,14 @@ namespace StarterAssets
         private CharacterController _controller;
         private StarterAssetsInputs _input;
         private GameObject _mainCamera;
+        private CinemachineVirtualCamera cinamachineCamera;
         private UICanvasControllerInput uICanvasControllerInputScritp;
         private MobileDisableAutoSwitchControls mobileDisableAutoSwitchControlsScript;
         private const float _threshold = 0.01f;
 
         private bool _hasAnimator;
 
+        [SerializeField] private float cameraRotaionSensitivity;
         private bool IsCurrentDeviceMouse
         {
             get
@@ -138,9 +141,17 @@ namespace StarterAssets
                 uICanvasControllerInputScritp =  GameObject.FindAnyObjectByType<UICanvasControllerInput>();
                 
             }
-            if(mobileDisableAutoSwitchControlsScript == null)
+#if ENABLE_INPUT_SYSTEM && (UNITY_IOS || UNITY_ANDROID)
+
+            if (mobileDisableAutoSwitchControlsScript == null)
             {
                 mobileDisableAutoSwitchControlsScript = GameObject.FindAnyObjectByType<MobileDisableAutoSwitchControls>();
+            }
+
+#endif
+            if(cinamachineCamera == null)
+            {
+                cinamachineCamera = FindAnyObjectByType<CinemachineVirtualCamera>();
             }
         }
 
@@ -168,8 +179,14 @@ namespace StarterAssets
                 _playerInput = GetComponent<PlayerInput>();
                 _playerInput.enabled = true;
                 uICanvasControllerInputScritp.starterAssetsInputs = this.GetComponent<StarterAssetsInputs>();
+
+
+#if ENABLE_INPUT_SYSTEM && (UNITY_IOS || UNITY_ANDROID)
                 mobileDisableAutoSwitchControlsScript.playerInput = _playerInput;
                 mobileDisableAutoSwitchControlsScript.DisableAutoSwitchControls();
+#endif
+
+                cinamachineCamera.Follow = transform.GetChild(0);
             }
 
         }
@@ -223,8 +240,8 @@ namespace StarterAssets
                 //Don't multiply mouse input by Time.deltaTime;
                 float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
 
-                _cinemachineTargetYaw += _input.look.x * deltaTimeMultiplier;
-                _cinemachineTargetPitch += _input.look.y * deltaTimeMultiplier;
+                _cinemachineTargetYaw += _input.look.x * deltaTimeMultiplier * cameraRotaionSensitivity;
+                _cinemachineTargetPitch += _input.look.y * deltaTimeMultiplier * cameraRotaionSensitivity;
             }
 
             // clamp our rotations so our values are limited 360 degrees
