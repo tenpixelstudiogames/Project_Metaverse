@@ -36,9 +36,9 @@ public class PlayerNetwork : NetworkBehaviour
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
-             spawnedGameObject = Instantiate(spawnedObject);
-            spawnedGameObject.GetComponent<NetworkObject>().Spawn(true);
-            // networkVariable.Value = Random.Range(0, 100);
+            // spawnedGameObject = Instantiate(spawnedObject);
+           // spawnedGameObject.GetComponent<NetworkObject>().Spawn(true);
+            networkVariable.Value = Random.Range(0, 100);
             //TestClientRpc();
         }
         if (Input.GetKeyDown(KeyCode.Backspace))
