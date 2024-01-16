@@ -1,0 +1,12 @@
+Converting script [1 / 1]	[\3rdPerson+Fly(Mobile)\Scripts\LevelScripts\ThirdPersonOrbitCamBasicMobile.cs]
+	Fragments : 3
+		[ 0] : Line:   75	InputProperty touchCount          
+		[ 1] : Line:   77	InputMethod   GetTouch            	(i)
+		[ 2] : Line:   78	InputMethod   GetTouch            	(i)
+
+
+1 scripts modified!
+Overwriting actual scripts...
+	[0 / 1] from  [C:/Users/Thinkpad/Pictures/[Old]Project_Metaverse_PhotonVoice/CF2-Data/Script-Backups/2024-01-12-16-46\Assets-After/\3rdPerson+Fly(Mobile)\Scripts\LevelScripts\ThirdPersonOrbitCamBasicMobile.cs] to [C:/Users/Thinkpad/Pictures/[Old]Project_Metaverse_PhotonVoice/Assets/\3rdPerson+Fly(Mobile)\Scripts\LevelScripts\ThirdPersonOrbitCamBasicMobile.cs]
+
+Overwriting COMPLETED!
