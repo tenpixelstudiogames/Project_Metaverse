@@ -11,13 +11,12 @@ using Unity.Netcode.Transports.UTP;
 using Unity.Networking.Transport.Relay;
 using StarterAssets;
 using Unity.Services.Vivox;
-using VivoxUnity;
 using System;
 using UnityEngine.Video;
 
 public class TestingRelay : NetworkBehaviour
 {
-    private ILoginSession LoginSession;
+   // private ILoginSession LoginSession;
     public VideoPlayer vPlayer;
     public bool isParticipentSpeaking;
     public bool isStateChanged;
@@ -82,13 +81,8 @@ public class TestingRelay : NetworkBehaviour
         };
 
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
-        VivoxService.Instance.Initialize();
-        VivoxConfig vConfig = new VivoxConfig();
-        vConfig.DefaultCodecsMask = MediaCodecType.Opus8;
-        vConfig.EnableFastNetworkChangeDetection = true;
-        Debug.Log("Current Docking "+vConfig.DisableAudioDucking);
-        Client _client = new Client();
-        _client.Initialize(vConfig);
+        await VivoxService.Instance.InitializeAsync();
+     
       
     }
 
@@ -167,7 +161,7 @@ public class TestingRelay : NetworkBehaviour
     }
 
     #region Vivox
-
+/*
 
     private void BindChannelSessionHandlers(bool doBind, IChannelSession channelSession)
     {
@@ -210,10 +204,10 @@ public class TestingRelay : NetworkBehaviour
         {
           case "LocalMute":
                 {
-                   /* if (username != accountId.Name) //can't local mute yourself, so don't check for it
+                   *//* if (username != accountId.Name) //can't local mute yourself, so don't check for it
                     {
                         //update their muted image
-                    }*/
+                    }*//*
 
                    // isParticipentSpeaking = false;
                     break;
@@ -320,7 +314,7 @@ public class TestingRelay : NetworkBehaviour
             }
         }
     }
-
+*/
 
   /*  public void SetAutoVad()
     {

@@ -320,7 +320,7 @@ public class MatchMakerClient : NetworkBehaviour
         // Invoke("UpdatePlayerNameServerRpc", 3);
         //   Invoke("SpawnPlayerNameTextServerRpc", 3);
 
-        KitchenGameMultiplayer.Instance.StartClient();
+        PlayerMultiplayerHandler.Instance.StartClient();
 
         //tempCamera.SetActive(false);
 

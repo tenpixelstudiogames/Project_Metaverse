@@ -114,7 +114,7 @@ public class MatchmakerUI : MonoBehaviour {
                     ushort port = (ushort)multiplayAssignment.Port;
                     NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData(ipv4Address, port);
                     NetworkManager.Singleton.OnClientConnectedCallback += Client_OnClientConnectedCallback;
-                    KitchenGameMultiplayer.Instance.StartClient();
+                    PlayerMultiplayerHandler.Instance.StartClient();
                     break;
                 case MultiplayAssignment.StatusOptions.InProgress:
                     // Still waiting...
